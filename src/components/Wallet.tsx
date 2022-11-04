@@ -1,7 +1,10 @@
 import React from 'react';
 import {Button, Column, Flex, Row, Text} from 'native-base';
+import {useNavigate} from 'react-router-native';
 
 export const Wallet: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <Flex
       direction="column"
@@ -15,11 +18,14 @@ export const Wallet: React.FC = () => {
       <Column>
         <Text color="white">Balance</Text>
         <Text color="white" fontSize="4xl">
-          $300.30
+          ₹400
         </Text>
       </Column>
       <Row justifyContent="flex-end">
-        <Button rounded="full" backgroundColor="indigo.300">
+        <Button
+          rounded="full"
+          backgroundColor="indigo.300"
+          onPress={() => navigate('/recharge')}>
           <Text color="white" fontWeight={700}>
             Recharge
           </Text>
