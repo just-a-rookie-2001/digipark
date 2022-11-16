@@ -1,16 +1,38 @@
-import React from 'react';
-import {Box} from 'native-base';
+import React, {Dispatch, SetStateAction} from 'react';
+import {Box, Button, Fab, Flex, Text} from 'native-base';
 import {Wallet} from '../components/Wallet';
 import {Title} from '../components/Title';
 import {Transaction} from '../components/Transaction';
 import {TransactionList} from '../components/TransactionList';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {useNavigate} from 'react-router-native';
+import {logout} from '../services/user';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export const HomeScreen: React.FC = () => {
+export const HomeScreen: React.FC<{
+  setAsyncKey: Dispatch<SetStateAction<string>>;
+}> = ({setAsyncKey}) => {
+  const navigate = useNavigate();
+
   return (
     <Box flex={1} safeAreaY safeAreaX={5} bg="#f3f2f8">
-      <Title text="Wallet" />
+      <Flex direction="row" justifyContent={'space-between'} my="2">
+        <Title text="Wallet" />
+        <Button
+          colorScheme="secondary"
+          onPress={() => {
+            logout();
+            AsyncStorage.setItem('@KEY_ID', '');
+            setAsyncKey('');
+          }}>
+          Log Out
+        </Button>
+      </Flex>
       <Wallet />
-      <Title text="Recent Trips" />
+
+      <Flex direction="row" my="2">
+        <Title text="Recent Trips" />
+      </Flex>
       <TransactionList>
         <Transaction text="Bopal" isEntry={false} time="10th June 2022" />
         <Transaction text="Bopal" isEntry time="10th June 2022" />
@@ -21,18 +43,30 @@ export const HomeScreen: React.FC = () => {
         <Transaction text="Bodakdev" isEntry={false} time="26th April 2022" />
         <Transaction text="Bodakdev" isEntry time="26th April 2022" />
       </TransactionList>
-      {/* <Fab
+      <Fab
         renderInPortal={false}
         shadow={5}
         size="lg"
-        icon={<FontAwesomeIcon icon="key" color="white" size={20} />}
+        icon={<FontAwesomeIcon icon="parking" color="white" size={20} />}
         label={
           <Text fontSize={17} fontWeight={500} color="white">
-            Scan Key
+            Parking
           </Text>
         }
-        // onPress={onOpen}
-      /> */}
+        onPress={() => navigate('/park')}
+      />
+      <Fab
+        renderInPortal={true}
+        shadow={5}
+        size="lg"
+        icon={<FontAwesomeIcon icon="parking" color="white" size={20} />}
+        label={
+          <Text fontSize={17} fontWeight={500} color="white">
+            Parking
+          </Text>
+        }
+        onPress={() => navigate('/park')}
+      />
     </Box>
   );
 };

@@ -6,8 +6,8 @@ import {changeBarColors} from 'react-native-immersive-bars';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {faRightToBracket} from '@fortawesome/free-solid-svg-icons/faRightToBracket';
 import {faRightFromBracket} from '@fortawesome/free-solid-svg-icons/faRightFromBracket';
-import {faKey} from '@fortawesome/free-solid-svg-icons/faKey';
-library.add(faRightToBracket, faRightFromBracket, faKey);
+import {faParking} from '@fortawesome/free-solid-svg-icons/faParking';
+library.add(faRightToBracket, faRightFromBracket, faParking);
 
 const newColorTheme = {
   brand: {
