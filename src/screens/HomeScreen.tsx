@@ -34,14 +34,22 @@ export const HomeScreen: React.FC<{
         <Title text="Recent Trips" />
       </Flex>
       <TransactionList>
-        <Transaction text="Bopal" isEntry={false} time="10th June 2022" />
-        <Transaction text="Bopal" isEntry time="10th June 2022" />
-        <Transaction text="Navrangpura" isEntry={false} time="8th June 2022" />
-        <Transaction text="Navrangpura" isEntry time="8th June 2022" />
-        <Transaction text="Vastrapur" isEntry={false} time="3rd May 2022" />
-        <Transaction text="Vastrapur" isEntry time="3rd May 2022" />
-        <Transaction text="Bodakdev" isEntry={false} time="26th April 2022" />
-        <Transaction text="Bodakdev" isEntry time="26th April 2022" />
+        <Transaction text="Bopal" isEntry={false} time="10th November 2022" />
+        <Transaction text="Bopal" isEntry time="10th November 2022" />
+        <Transaction
+          text="Navrangpura"
+          isEntry={false}
+          time="8th November 2022"
+        />
+        <Transaction text="Navrangpura" isEntry time="8th November 2022" />
+        <Transaction text="Vastrapur" isEntry={false} time="3rd October 2022" />
+        <Transaction text="Vastrapur" isEntry time="3rd October 2022" />
+        <Transaction
+          text="Bodakdev"
+          isEntry={false}
+          time="26th September 2022"
+        />
+        <Transaction text="Bodakdev" isEntry time="26th September 2022" />
       </TransactionList>
       <Fab
         renderInPortal={false}
